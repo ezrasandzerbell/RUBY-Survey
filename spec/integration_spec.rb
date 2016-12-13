@@ -42,7 +42,7 @@ describe('delete survey from index page', {:type => :feature}) do
     fill_in('name', :with => 'New Gallup Poll')
     click_button('Create Survey')
     click_button('Delete Survey')
-    expect(page).to have_content('Design surveys')
+    expect(page).to have_content('Design Surveys')
   end
 end
 

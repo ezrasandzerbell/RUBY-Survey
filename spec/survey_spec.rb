@@ -17,4 +17,11 @@ describe(Survey) do
     test_survey = Survey.new({:name => ""})
     expect(test_survey.save()).to(eq(false))
   end
+
+  it('validates uniqueness of survey title') do
+    test_survey = Survey.new({:name => "Dinner Party"})
+    test_survey.save()
+    test_survey1 = Survey.new({:name => "Dinner Party"})
+    expect(test_survey1.save()).to(eq(false))
+  end
 end
