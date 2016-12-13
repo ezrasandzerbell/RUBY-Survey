@@ -1,11 +1,31 @@
 <div class="container">
   <h3>Design surveys:</h3>
   <a href="/new_survey">Create a new Survey</a>
-  <h3>Current Surveys:</h3>
+
   <% if @surveys != [] %>
-    <% @surveys.each() do |survey| %>
-      <h4><a href="/surveys/<%= survey.id() %>"><%= survey.name() %></a></h4>
-    <% end %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Current Surveys:</h3>
+    </div>
+    <div class="panel-body">
+      <% @surveys.each() do |survey| %>
+        <div class="row">
+          <div class="col-md-4">
+            <h4><a href="/surveys/<%= survey.id() %>"><%= survey.name() %></a></h4>
+          </div>
+          <div class="col-md-4">
+            <a href="/survey/<%= survey.id()%>/edit"><button type="button" class="btn btn-primary">Update Name</button></a>
+          </div>
+          <div class="col-md-4">
+            <form action="/surveys/<%= survey.id()%>" method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button type="submit" class="btn btn-danger">Delete Survey</button>
+            </form>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
   <% else %>
     <h5>Please create a new survey</h5>
   <% end %>

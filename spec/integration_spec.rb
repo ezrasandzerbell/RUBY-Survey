@@ -33,5 +33,26 @@ describe('add questions to a new survey', {:type => :feature}) do
     click_button('Create')
     expect(page).to have_content("sup?")
   end
+end
 
+describe('editing survey appearance on index page', {:type => :feature}) do
+  it('creates and deletes survey on/from index') do
+    visit('/')
+    click_link('Create a new Survey')
+    fill_in('name', :with => 'New Gallup Poll')
+    click_button('Create Survey')
+    click_button('Delete Survey')
+    expect(page).to have_content('Design surveys')
+  end
+  # it('creates new question and displays on survey page') do
+  #   visit('/')
+  #   click_link('Create a new Survey')
+  #   fill_in('name', :with => 'New Gallup Poll')
+  #   click_button('Create Survey')
+  #   click_link("NEW GALLUP POLL")
+  #   expect(page).to have_content("NEW GALLUP POLL")
+  #   fill_in('name', :with => "sup?")
+  #   click_button('Create')
+  #   expect(page).to have_content("sup?")
+  # end
 end
