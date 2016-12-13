@@ -71,3 +71,19 @@ describe('delete question from questions page', {:type => :feature}) do
     expect(page).to have_content('SKY COLOR')
   end
 end
+
+describe('edit question from questions page', {:type => :feature}) do
+  it('creates survey question and navigates to edit page') do
+    visit('/')
+    click_link('Create a new Survey')
+    fill_in('name', :with => 'Sky Color')
+    click_button('Create Survey')
+    click_link('SKY COLOR')
+    fill_in('name', :with => 'Is the sky blue?')
+    click_button('Create')
+    click_link('Update Question')
+    fill_in('new_name', :with => 'Is the sky gray?')
+    click_button('Change Question')
+    expect(page).to have_content('Is the sky gray?')
+  end
+end
