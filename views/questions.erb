@@ -1,16 +1,34 @@
 <h1><%= @survey.name%></h1>
 
-  <% if @survey.questions != []%>
-    <ul>
-      <% @survey.questions.each do |question| %>
-      <li><%= question.name %></li>
-      <% end %>
-    </ul>
-  <% else %>
-  <h3> Please create a new question </h3>
-  <% end %>
-
 <form action="/survey/<%= @survey.id %>/new" method="post">
-  <input type="text" name="name" placeholder="Create your question here">
+  <input type="text" class="form-control" name="name" placeholder="Create your question here">
   <button type="submit" class="btn btn-primary">Create</button>
 </form>
+<br>
+<% if @survey.questions != []%>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>Questions</h4>
+    </div>
+    <div class="panel-body">
+      <% @survey.questions.each do |question| %>
+      <div class="row">
+        <div class="col-md-4">
+          <h5><%= question.name %></h5>
+        </div>
+        <div class="col-md-4">
+          <a href="/question/<%= question.id() %>/edit"><button type="button" class="btn btn-warning">Update Question</button></a>
+        </div>
+        <div class="col-md-4">
+          <form action="/questions/<%= question.id()%>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <button type="submit" class="btn btn-danger">Delete Question</button>
+          </form>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <h3> Please create a new question </h3>
+<% end %>
