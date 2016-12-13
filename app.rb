@@ -22,3 +22,8 @@ post('/new_survey') do
   @surveys = Survey.all()
   erb(:index)
 end
+
+get('/surveys/:id') do
+  @survey = Survey.find(params.fetch("id").to_i)
+  erb(:questions)
+end
