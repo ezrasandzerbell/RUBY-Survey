@@ -4,8 +4,8 @@ require('sinatra/activerecord')
 require('rspec')
 require('pry')
 require('pg')
-require('task')
-require('list')
+require('question')
+require('survey')
 
 RSpec.configure do |config|
   config.after(:each) do
