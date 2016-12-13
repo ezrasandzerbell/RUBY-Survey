@@ -1,0 +1,9 @@
+<h3>Errors!</h3>
+
+<ul>
+  <% @survey.errors().full_messages().each() do |message| %>
+    <li><%= message %></li>
+  <% end %>
+</ul>
+
+<h4><a href="/">Return to main page with more feeling</a></h4>

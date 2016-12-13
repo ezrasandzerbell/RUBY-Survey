@@ -12,4 +12,9 @@ describe(Survey) do
     survey = Survey.create({:name => "gallup poll", :id => nil})
     expect(survey.name.upcase()).to(eq("GALLUP POLL"))
   end
+
+  it('validates presence of survey title') do
+    test_survey = Survey.new({:name => ""})
+    expect(test_survey.save()).to(eq(false))
+  end
 end

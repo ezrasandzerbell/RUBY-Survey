@@ -18,9 +18,13 @@ end
 
 post('/new_survey') do
   name = params.fetch("name")
-  Survey.create({:name => name})
-  @surveys = Survey.all()
-  erb(:index)
+  @survey = Survey.new({:name => name})
+  if @survey.save()
+    @surveys = Survey.all()
+    erb(:index)
+  else
+    erb(:survey_error)
+  end
 end
 
 get('/surveys/:id') do
