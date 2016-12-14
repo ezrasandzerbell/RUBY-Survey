@@ -6,5 +6,5 @@ class Survey < ActiveRecord::Base
 private
   define_method(:capitalize_name) do
     self.name=(name().upcase())
-    end
+  end
 end

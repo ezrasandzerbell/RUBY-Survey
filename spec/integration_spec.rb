@@ -31,7 +31,7 @@ describe('add questions to a new survey', {:type => :feature}) do
     expect(page).to have_content("NEW GALLUP POLL")
     fill_in('name', :with => "sup?")
     click_button('Create')
-    expect(page).to have_content("sup?")
+    expect(page).to have_content("Sup?")
   end
 end
 
@@ -84,6 +84,6 @@ describe('edit question from questions page', {:type => :feature}) do
     click_link('Update Question')
     fill_in('new_name', :with => 'Is the sky gray?')
     click_button('Change Question')
-    expect(page).to have_content('Is the sky gray?')
+    expect(page).to have_content('Is The Sky Gray?')
   end
 end
