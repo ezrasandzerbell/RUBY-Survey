@@ -35,9 +35,13 @@ end
 post('/survey/:id/new') do
   name = params.fetch("name")
   survey_id = params.fetch("id").to_i
-  Question.create({:name => name, :survey_id => survey_id})
+  @question = Question.new({:name => name, :survey_id => survey_id})
   @survey = Survey.find(survey_id)
-  erb(:questions)
+  if @question.save()
+    erb(:questions)
+  else
+    erb(:question_error)
+  end
 end
 
 delete('/surveys/:id') do

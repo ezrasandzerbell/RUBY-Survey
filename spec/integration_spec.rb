@@ -86,4 +86,14 @@ describe('edit question from questions page', {:type => :feature}) do
     click_button('Change Question')
     expect(page).to have_content('Is The Sky Gray?')
   end
+  it('tests for error message routing with questions') do
+    visit('/')
+    click_link('Create a new Survey')
+    fill_in('name', :with => 'Sky Color')
+    click_button('Create Survey')
+    click_link('SKY COLOR')
+    fill_in('name', :with => '')
+    click_button('Create')
+    expect(page).to have_content('Errors!')
+  end
 end
