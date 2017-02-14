@@ -1,15 +1,31 @@
-1) Create a dropdown menu for each question that limits possible answer input. Create class called answers, append to dropdown. Allow user to create new answer with simple input text form. Answer table would have a question_id column.
+# _Survey_
 
-2) Create landing page that has two links: one for creator and one for audience. Audience will be presented a list of survey options and can fill them out by clicking on that survey, answering each question with multiple choice dropdown menu.
+#### _Web App for conducting Surveys with Admin and User functionality, 11.18.16_
 
-3) Questions would each be located on a unique page id. Submit form would include multiple choice selection from dropdown. app.rb pulls question ID value and passes through Question.find(id + 1) to rotate through all questions within Survey.
+#### By _**Ezra Sandzer-Bell**_
 
-4) (Doesn't make sense)
+## Description
 
-5) Create a User Class and an Answer class (with one to many relationships in User/Survey/Question/Answer Class hierarchy). Pull data out of user class.
+Create a dropdown menu for each question that limits possible answer input. Create class called answers, append to dropdown. Allow user to create new answer with simple input text form. Answer table would have a question_id column.
 
-6) In Questions Class, replace multiple choice dropdown with multiple choice checkbox for survey question answers.
+Create landing page that has two links: one for creator and one for audience. Audience will be presented a list of survey options and can fill them out by clicking on that survey, answering each question with multiple choice dropdown menu.
 
-7) For open ended questions, receive input with text box.
+Questions would each be located on a unique page id. Submit form would include multiple choice selection from dropdown. app.rb pulls question ID value and passes through Question.find(id + 1) to rotate through all questions within Survey.
 
-8) Mix mode question design, include 'other' with some questions for user text input.
+Create a User Class and an Answer class (with one to many relationships in User/Survey/Question/Answer Class hierarchy). Pull data out of user class.
+
+In Questions Class, replace multiple choice dropdown with multiple choice checkbox for survey question answers.
+
+For open ended questions, receive input with text box.
+
+Mix mode question design, include 'other' with some questions for user text input.
+
+## Technologies Used
+
+_This site was built with Ruby, HTML, and CSS. Temporary hosting and spec integration testing was performed with Sinatra_
+
+### License
+
+*Open Source*
+
+Copyright (c) 2016 **_Ezra Sandzer-Bell_**
